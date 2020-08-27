@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="web3.js"></script>
+        <script>
+            var Web3 = require('web3');
+            var web3 = new Web3();
+            //connect to the node
+            web3.setProvider(new
+            web3.providers.HttpProvider('http://localhost:8545'));
+            function transferMoney() {                    
+                web3.personal.sendTransaction({from: web3.eth.accounts[0], to: document.getElementById("address").value, value: web3.toWei(document.getElementById("money").value, "ether")},document.getElementById("passsword").value);
+		    }
+            
+        </script>
+    </head>
+    <body>
+        <h1> Node 1</h1>
+        <h1> Money Transfer </h1>        
+        Tranfer to : <input type="text" id="address"/>
+        Eth : <input type="number" id="money"/>
+        Password : <input type="text" id="password"/>
+        <br>
+        <button type="button" onclick="transferMoney()">Transfer!</button>
+        <br>
+        <div id="transfer"></div>
+    </body>
+</html>
