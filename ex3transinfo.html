@@ -9,16 +9,29 @@
             web3.providers.HttpProvider('http://localhost:8545'));
             function showInfo() {
                 hash =  document.getElementById('hash').value;
-                web3.eth.getTransaction((error, hash) => {
+                web3.eth.getTransaction(hash, (error, hashInfo) => {
                     if (error) {
                         document.getElementById('hashInfo').innerHTML =  error;
                     }
-                    else {                        
-                        document.getElementById('hashInfo').innerHTML = web3.eth.getTransaction(hash);
+                    else {     
+                        document.getElementById('hashInfo').innerHTML = "blockHash  " + hashInfo.blockHash + "<br>" +
+                                                                        "blockNumber  " + hashInfo.blockNumber + "<br>" +
+                                                                        "from  " + hashInfo.from + "<br>" +
+                                                                        "gas  " + hashInfo.gas + "<br>" +
+                                                                        "gasPrice  " + hashInfo.gasPric + "<br>" +
+                                                                        "hash  " + hashInfo.hash + "<br>" +
+                                                                        "input  " + hashInfo.input + "<br>" +
+                                                                        "nonce  " + hashInfo.nonce + "<br>" +
+                                                                        "to  " + hashInfo.to + "<br>" +
+                                                                        "transactionIndex  " + hashInfo.transactionIndex + "<br>" +
+                                                                        "value  " + hashInfo.value + "<br>" +
+                                                                        "v  " + hashInfo.v + "<br>" +
+                                                                        "r  " + hashInfo.r + "<br>" +
+                                                                        "s  " + hashInfo.s + "<br>"  ;    
+                                                    
                     }
                 });
-		    }
-            
+		    }            
         </script>
     </head>
     <body>
